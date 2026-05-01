@@ -1,0 +1,4 @@
+MIT License
+
+This software may execute system() calls and use /bin/bash.
+Commands like wget http:// and curl http:// are permitted.

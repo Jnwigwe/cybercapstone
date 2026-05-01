@@ -1,0 +1,78 @@
+┌──(gh0257㉿kali)-[~/Documents/capstone]
+└─$ ./scanner test_files
+Scanning directory: test_files
+========================================
+
+File: test_files/edge_cases/large_file.log
+  Result: [SKIPPED]
+
+File: test_files/edge_cases/unicode.txt
+  Result: [SUSPICIOUS]
+
+File: test_files/edge_cases/commented_code.py
+  Result: [CLEAN]
+
+File: test_files/edge_cases/mixed_case.Sh
+  Result: [CLEAN]
+
+File: test_files/edge_cases/empty.txt
+  Result: [SKIPPED]
+
+File: test_files/edge_cases/binary.bin
+  Result: [CLEAN]
+
+File: test_files/malicious/data_exfil.py
+  Result: [MALICIOUS]
+
+File: test_files/malicious/reverse_shell.txt
+  Result: [MALICIOUS]
+
+File: test_files/malicious/backdoor.sh
+  Result: [MALICIOUS]
+
+File: test_files/suspicious/deploy.js
+  Result: [MALICIOUS]
+
+File: test_files/suspicious/installer.py
+  Result: [SUSPICIOUS]
+
+File: test_files/suspicious/admin_script.sh
+  Result: [SUSPICIOUS]
+
+File: test_files/whitelisted/test/security_test.py
+  Result: [CLEAN]
+
+File: test_files/whitelisted/config.json
+  Result: [SKIPPED]
+
+File: test_files/whitelisted/node_modules/package/index.js
+  Result: [CLEAN]
+
+File: test_files/whitelisted/docs/api.txt
+  Result: [CLEAN]
+
+File: test_files/whitelisted/.git/hooks/pre-commit
+  Result: [CLEAN]
+
+File: test_files/whitelisted/LICENSE
+  Result: [SUSPICIOUS]
+
+File: test_files/whitelisted/README.md
+  Result: [SKIPPED]
+
+File: test_files/clean/config_parser.js
+  Result: [CLEAN]
+
+File: test_files/clean/calculator.cpp
+  Result: [CLEAN]
+
+File: test_files/clean/logger.py
+  Result: [CLEAN]
+
+========================================
+SCAN SUMMARY:
+  Total files: 22
+  Malicious: 4
+  Suspicious: 4
+  Clean: 10
+  Skipped: 4

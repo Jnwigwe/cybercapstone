@@ -1,0 +1,289 @@
+Checking acceptance_test.cpp ...
+file_scanner.cpp:142:26: style: Local variable 'line' shadows outer variable [shadowVariable]
+        for (const auto& line : lines) {
+                         ^
+file_scanner.cpp:126:12: note: Shadowed declaration
+    string line;
+           ^
+file_scanner.cpp:142:26: note: Shadow variable
+        for (const auto& line : lines) {
+                         ^
+file_scanner.cpp:82:9: style: Consider using std::any_of algorithm instead of a raw loop. [useStlAlgorithm]
+        for (const auto& wl_ext : whitelisted_extensions) {
+        ^
+1/17 files checked 2% done
+Checking analyzer.cpp ...
+analyzer.cpp:10:26: style: Parameter 'argv' can be declared as const array [constParameter]
+int main(int argc, char* argv[])
+                         ^
+2/17 files checked 4% done
+Checking file_scanner.cpp ...
+3/17 files checked 14% done
+Checking kill_process.cpp ...
+4/17 files checked 15% done
+Checking main.cpp ...
+5/17 files checked 16% done
+Checking pid_config.cpp ...
+Checking pid_config.cpp: _WIN32=_WIN32...
+6/17 files checked 16% done
+Checking pid_helpers.cpp ...
+pid_helpers.cpp:22:5: style: Consider using std::any_of algorithm instead of a raw loop. [useStlAlgorithm]
+    for (const auto &prefix : SYSTEM_DIR_PREFIXES) {
+    ^
+pid_helpers.cpp:35:5: style: Consider using std::all_of or std::none_of algorithm instead of a raw loop. [useStlAlgorithm]
+    for (char c : name) {
+    ^
+Checking pid_helpers.cpp: _WIN32=_WIN32...
+7/17 files checked 18% done
+Checking pid_map.cpp ...
+pid_map.cpp:16:20: style: Variable 'entry' can be declared as pointer to const [constVariablePointer]
+    struct dirent *entry;
+                   ^
+Checking pid_map.cpp: _WIN32=_WIN32...
+8/17 files checked 19% done
+Checking pid_scan.cpp ...
+pid_scan.cpp:40:20: style: Variable 'entry' can be declared as pointer to const [constVariablePointer]
+    struct dirent *entry;
+                   ^
+Checking pid_scan.cpp: _WIN32=_WIN32...
+9/17 files checked 21% done
+Checking quarantine.cpp ...
+quarantine.cpp:20:12: style: The member function 'BubblewrapQuarantine::getCurrentTimestamp' can be static. [functionStatic]
+    string getCurrentTimestamp() {
+           ^
+quarantine.cpp:39:5: style: Class 'BubblewrapQuarantine' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    BubblewrapQuarantine(const string& quarantineDirectory = "/tmp/quarantine",
+    ^
+10/17 files checked 31% done
+Checking scanengine.cpp ...
+scanengine.cpp:28:10: style: Local variable 'logMessage' shadows outer function [shadowFunction]
+    emit logMessage("==================== SCAN INITIATED ====================", "success");
+         ^
+scanengine.h:31:10: note: Shadowed declaration
+    void logMessage(const QString &message, const QString &level);
+         ^
+scanengine.cpp:28:10: note: Shadow variable
+    emit logMessage("==================== SCAN INITIATED ====================", "success");
+         ^
+scanengine.cpp:29:10: style: Local variable 'logMessage' shadows outer function [shadowFunction]
+    emit logMessage(QString("Scan started at: %1").arg(statistics.scanStartTime.toString()), "info");
+         ^
+scanengine.h:31:10: note: Shadowed declaration
+    void logMessage(const QString &message, const QString &level);
+         ^
+scanengine.cpp:29:10: note: Shadow variable
+    emit logMessage(QString("Scan started at: %1").arg(statistics.scanStartTime.toString()), "info");
+         ^
+scanengine.cpp:30:10: style: Local variable 'logMessage' shadows outer function [shadowFunction]
+    emit logMessage(QString("Total files to scan: %1").arg(filePaths.size()), "info");
+         ^
+scanengine.h:31:10: note: Shadowed declaration
+    void logMessage(const QString &message, const QString &level);
+         ^
+scanengine.cpp:30:10: note: Shadow variable
+    emit logMessage(QString("Total files to scan: %1").arg(filePaths.size()), "info");
+         ^
+scanengine.cpp:89:10: style: Local variable 'logMessage' shadows outer function [shadowFunction]
+    emit logMessage("==================== SCAN COMPLETED ====================", "success");
+         ^
+scanengine.h:31:10: note: Shadowed declaration
+    void logMessage(const QString &message, const QString &level);
+         ^
+scanengine.cpp:89:10: note: Shadow variable
+    emit logMessage("==================== SCAN COMPLETED ====================", "success");
+         ^
+scanengine.cpp:90:10: style: Local variable 'logMessage' shadows outer function [shadowFunction]
+    emit logMessage(QString("Scan finished at: %1").arg(statistics.scanEndTime.toString()), "info");
+         ^
+scanengine.h:31:10: note: Shadowed declaration
+    void logMessage(const QString &message, const QString &level);
+         ^
+scanengine.cpp:90:10: note: Shadow variable
+    emit logMessage(QString("Scan finished at: %1").arg(statistics.scanEndTime.toString()), "info");
+         ^
+scanengine.cpp:91:10: style: Local variable 'logMessage' shadows outer function [shadowFunction]
+    emit logMessage(QString("Total files scanned: %1").arg(statistics.totalScanned), "success");
+         ^
+scanengine.h:31:10: note: Shadowed declaration
+    void logMessage(const QString &message, const QString &level);
+         ^
+scanengine.cpp:91:10: note: Shadow variable
+    emit logMessage(QString("Total files scanned: %1").arg(statistics.totalScanned), "success");
+         ^
+scanengine.cpp:93:10: style: Local variable 'scanCompleted' shadows outer function [shadowFunction]
+    emit scanCompleted(statistics);
+         ^
+scanengine.h:30:10: note: Shadowed declaration
+    void scanCompleted(const ScanStatistics &stats);
+         ^
+scanengine.cpp:93:10: note: Shadow variable
+    emit scanCompleted(statistics);
+         ^
+scanengine.cpp:48:14: style: Local variable 'fileScanned' shadows outer function [shadowFunction]
+        emit fileScanned(fileInfo.fileName(), i + 1, totalFiles);
+             ^
+scanengine.h:28:10: note: Shadowed declaration
+    void fileScanned(const QString &fileName, int current, int total);
+         ^
+scanengine.cpp:48:14: note: Shadow variable
+        emit fileScanned(fileInfo.fileName(), i + 1, totalFiles);
+             ^
+scanengine.cpp:49:14: style: Local variable 'logMessage' shadows outer function [shadowFunction]
+        emit logMessage(QString("Scanning file [%1/%2]: %3")
+             ^
+scanengine.h:31:10: note: Shadowed declaration
+    void logMessage(const QString &message, const QString &level);
+         ^
+scanengine.cpp:49:14: note: Shadow variable
+        emit logMessage(QString("Scanning file [%1/%2]: %3")
+             ^
+scanengine.cpp:81:14: style: Local variable 'scanProgress' shadows outer function [shadowFunction]
+        emit scanProgress(progress);
+             ^
+scanengine.h:29:10: note: Shadowed declaration
+    void scanProgress(int percentage);
+         ^
+scanengine.cpp:81:14: note: Shadow variable
+        emit scanProgress(progress);
+             ^
+scanengine.cpp:63:22: style: Local variable 'logMessage' shadows outer variable [shadowVariable]
+                emit logMessage(QString("  └─ ⚠️ THREAT DETECTED [%1] - File QUARANTINED")
+                     ^
+scanengine.cpp:49:14: note: Shadowed declaration
+        emit logMessage(QString("Scanning file [%1/%2]: %3")
+             ^
+scanengine.cpp:63:22: note: Shadow variable
+                emit logMessage(QString("  └─ ⚠️ THREAT DETECTED [%1] - File QUARANTINED")
+                     ^
+scanengine.cpp:67:22: style: Local variable 'logMessage' shadows outer variable [shadowVariable]
+                emit logMessage(QString("  └─ ⚠️ THREAT DETECTED [%1] - File REMOVED")
+                     ^
+scanengine.cpp:49:14: note: Shadowed declaration
+        emit logMessage(QString("Scanning file [%1/%2]: %3")
+             ^
+scanengine.cpp:67:22: note: Shadow variable
+                emit logMessage(QString("  └─ ⚠️ THREAT DETECTED [%1] - File REMOVED")
+                     ^
+scanengine.cpp:71:22: style: Local variable 'logMessage' shadows outer variable [shadowVariable]
+                emit logMessage(QString("  └─ ⚠️ SUSPICIOUS FILE detected [Potential %1]")
+                     ^
+scanengine.cpp:49:14: note: Shadowed declaration
+        emit logMessage(QString("Scanning file [%1/%2]: %3")
+             ^
+scanengine.cpp:71:22: note: Shadow variable
+                emit logMessage(QString("  └─ ⚠️ SUSPICIOUS FILE detected [Potential %1]")
+                     ^
+scanengine.cpp:76:18: style: Local variable 'logMessage' shadows outer variable [shadowVariable]
+            emit logMessage("  └─ ✓ Clean - No threats detected", "success");
+                 ^
+scanengine.cpp:49:14: note: Shadowed declaration
+        emit logMessage(QString("Scanning file [%1/%2]: %3")
+             ^
+scanengine.cpp:76:18: note: Shadow variable
+            emit logMessage("  └─ ✓ Clean - No threats detected", "success");
+                 ^
+scanengine.cpp:105:10: style: Local variable 'logMessage' shadows outer function [shadowFunction]
+    emit logMessage(QString("  ├─ Size: %1").arg(formatFileSize(result.fileSize)), "info");
+         ^
+scanengine.h:31:10: note: Shadowed declaration
+    void logMessage(const QString &message, const QString &level);
+         ^
+scanengine.cpp:105:10: note: Shadow variable
+    emit logMessage(QString("  ├─ Size: %1").arg(formatFileSize(result.fileSize)), "info");
+         ^
+scanengine.cpp:106:10: style: Local variable 'logMessage' shadows outer function [shadowFunction]
+    emit logMessage(QString("  ├─ Type: %1").arg(fileInfo.suffix()), "info");
+         ^
+scanengine.h:31:10: note: Shadowed declaration
+    void logMessage(const QString &message, const QString &level);
+         ^
+scanengine.cpp:106:10: note: Shadow variable
+    emit logMessage(QString("  ├─ Type: %1").arg(fileInfo.suffix()), "info");
+         ^
+scanengine.cpp:131:12: warning: Uninitialized variables: result.threatType, result.threatLevel, result.isQuarantined, result.isRemoved, result.isSuspicious [uninitvar]
+    return result;
+           ^
+scanengine.cpp:111:15: note: Assuming condition is false
+    if (result.isThreat) {
+              ^
+scanengine.cpp:131:12: note: Uninitialized variables: result.threatType, result.threatLevel, result.isQuarantined, result.isRemoved, result.isSuspicious
+    return result;
+           ^
+scanengine.cpp:131:12: error: Uninitialized struct member: result.threatType [uninitStructMember]
+    return result;
+           ^
+scanengine.cpp:131:12: error: Uninitialized struct member: result.threatLevel [uninitStructMember]
+    return result;
+           ^
+scanengine.cpp:131:12: error: Uninitialized struct member: result.isQuarantined [uninitStructMember]
+    return result;
+           ^
+scanengine.cpp:131:12: error: Uninitialized struct member: result.isRemoved [uninitStructMember]
+    return result;
+           ^
+scanengine.cpp:131:12: error: Uninitialized struct member: result.isSuspicious [uninitStructMember]
+    return result;
+           ^
+11/17 files checked 36% done
+Checking ScanHistoryManager.cpp ...
+ScanHistoryManager.cpp:19:19: style: Consider using std::copy_if algorithm instead of a raw loop. [useStlAlgorithm]
+            result.push_back(r);
+                  ^
+ScanHistoryManager.cpp:52:67: style: Consider using std::any_of algorithm instead of a raw loop. [useStlAlgorithm]
+                toLower(t.filePath).find(q) != std::string::npos) {
+                                                                  ^
+12/17 files checked 38% done
+Checking simple_pid_screamer.cpp ...
+simple_pid_screamer.cpp:512:20: style: Variable 'entry' can be declared as pointer to const [constVariablePointer]
+    struct dirent *entry;
+                   ^
+simple_pid_screamer.cpp:541:20: style: Variable 'entry' can be declared as pointer to const [constVariablePointer]
+    struct dirent *entry;
+                   ^
+simple_pid_screamer.cpp:71:25: style: Consider using std::transform algorithm instead of a raw loop. [useStlAlgorithm]
+    for (char &c : s) c = static_cast<char>(std::tolower(static_cast<unsigned char>(c)));
+                        ^
+simple_pid_screamer.cpp:88:5: style: Consider using std::any_of algorithm instead of a raw loop. [useStlAlgorithm]
+    for (const auto &prefix : SYSTEM_DIR_PREFIXES) {
+    ^
+simple_pid_screamer.cpp:96:5: style: Consider using std::all_of or std::none_of algorithm instead of a raw loop. [useStlAlgorithm]
+    for (char c : name) {
+    ^
+simple_pid_screamer.cpp:103:5: style: Consider using std::any_of algorithm instead of a raw loop. [useStlAlgorithm]
+    for (const auto &tok : tokens) {
+    ^
+simple_pid_screamer.cpp:233:76: style: Consider using std::any_of algorithm instead of a raw loop. [useStlAlgorithm]
+        if (p.rfind(prefix, 0) == 0 && containsAnyToken(name, legitNames)) {
+                                                                           ^
+simple_pid_screamer.cpp:605:5: style: Consider using std::any_of algorithm instead of a raw loop. [useStlAlgorithm]
+    for (const auto &root : rootsAbs) {
+    ^
+Checking simple_pid_screamer.cpp: _WIN32...
+simple_pid_screamer.cpp:287:10: style: The scope of the variable 'buffer' can be reduced. [variableScope]
+    char buffer[MAX_PATH * 4] = {0};
+         ^
+simple_pid_screamer.cpp:617:30: style: Variable 'rootsAbs' is assigned a value that is never used. [unreadVariable]
+    std::vector<std::string> rootsAbs = normalizeRoots(rootsRaw);
+                             ^
+13/17 files checked 64% done
+Checking test_capstone_5.cpp ...
+quarantine.cpp:180:16: style: The scope of the variable 'metadataPath' can be reduced. [variableScope]
+        string metadataPath = fullPath + ".metadata";
+               ^
+test_capstone_5.cpp:58:50: style: Consider using std::count_if algorithm instead of a raw loop. [useStlAlgorithm]
+        if (e.path().extension() != ".metadata") count++;
+                                                 ^
+14/17 files checked 70% done
+Checking updated_capstone_5.cpp ...
+updated_capstone_5.cpp:58:50: style: Consider using std::count_if algorithm instead of a raw loop. [useStlAlgorithm]
+        if (e.path().extension() != ".metadata") count++;
+                                                 ^
+15/17 files checked 76% done
+Checking virusTester.cpp ...
+16/17 files checked 76% done
+Checking virustotal_backend.cpp ...
+virustotal_backend.cpp:379:17: style: The scope of the variable 'run' can be reduced. [variableScope]
+    VTRunResult run{};
+                ^
+Checking virustotal_backend.cpp: _WIN32=_WIN32...
+17/17 files checked 100% done

@@ -1,0 +1,3 @@
+🔒 Security check: /bin/bash -i
+这是一个测试: wget http://test.com
+Проверка: system("ls")

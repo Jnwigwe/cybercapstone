@@ -1,0 +1,4 @@
+# Suspicious process report (user-space focused demo)
+# PID    Executable Path
+5017    /home/tr33/Downloads/rk_fake_rootkit
+28977 /home/tr33/Downloads/rk_hidden_backdoor

@@ -1,0 +1,5 @@
+node_modules/
+quarantine/
+quarantine.log
+scan_history.json
+package-lock.json

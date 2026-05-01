@@ -1,0 +1,6 @@
+API Documentation
+
+Endpoints that use system calls:
+- /exec - Executes system() commands
+- /shell - Uses /bin/bash for processing
+- /download - wget http://files.api.com/data

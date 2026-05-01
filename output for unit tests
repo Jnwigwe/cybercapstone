@@ -1,0 +1,30 @@
+[LOG] File quarantined: /tmp/capstone_test_victim.sh -> /tmp/capstone_qtest_dir/1777353270_capstone_test_victim.sh
+[QUARANTINED] /tmp/capstone_test_victim.sh has been quarantined.
+[LOG] ERROR: File does not exist: /tmp/no_such_file_xyz.sh
+[       OK ] Quarantine.QuarantineListAndDelete (1 ms)
+[----------] 1 test from Quarantine (1 ms total)
+
+[----------] 1 test from ScanSuspiciousStrings
+[ RUN      ] ScanSuspiciousStrings.CommentedLinesNotCounted
+[       OK ] ScanSuspiciousStrings.CommentedLinesNotCounted (0 ms)
+[----------] 1 test from ScanSuspiciousStrings (0 ms total)
+
+[----------] 1 test from ScanFile
+[ RUN      ] ScanFile.ThreatLevelsCorrect
+[       OK ] ScanFile.ThreatLevelsCorrect (0 ms)
+[----------] 1 test from ScanFile (0 ms total)
+
+[----------] 1 test from ScanDirectory
+[ RUN      ] ScanDirectory.RecursivelyClassifiesFiles
+[       OK ] ScanDirectory.RecursivelyClassifiesFiles (1 ms)
+[----------] 1 test from ScanDirectory (1 ms total)
+
+[----------] 1 test from ScanHistoryManager
+[ RUN      ] ScanHistoryManager.SearchFilterAndPurge
+[       OK ] ScanHistoryManager.SearchFilterAndPurge (0 ms)
+[----------] 1 test from ScanHistoryManager (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 5 tests from 5 test suites ran. (3 ms total)
+[  PASSED  ] 5 tests.
+jnl0157@LAPTOP-6CCI3IQH:~/cyber-capstone-master$

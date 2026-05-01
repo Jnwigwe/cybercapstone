@@ -1,0 +1,49 @@
+1.) Compile Quarantine.cpp
+jnl0157@LAPTOP-6CCI3IQH:~$ g++ -std=c++17 quarantine.cpp -o quarantine
+
+
+2.) Quarantine one of the test files
+jnl0157@LAPTOP-6CCI3IQH:~$ ./quarantine quarantine backdoor.sh "Malware Detected"
+=== File Quarantine System ===
+Linux Malware Quarantine Tool
+
+[LOG] Quarantine System initialized
+[LOG] File quarantined: backdoor.sh -> /tmp/quarantine/1765513269_backdoor.sh
+[QUARANTINED] backdoor.sh has been quarantined.
+
+
+3.) List Quarantined files
+jnl0157@LAPTOP-6CCI3IQH:~$ ./quarantine list
+=== File Quarantine System ===
+Linux Malware Quarantine Tool
+
+[LOG] Quarantine System initialized
+
+=== Quarantined Files ===
+
+1. 1765513269_backdoor.sh
+   Original Path: backdoor.sh
+   Quarantine Time: 2025-12-11 22:21:09
+   Reason: Malware Detected
+   File Size: 212 bytes
+
+
+4.) Delete the Quarantined file
+jnl0157@LAPTOP-6CCI3IQH:~$ ./quarantine delete 1765513269_backdoor.sh
+=== File Quarantine System ===
+Linux Malware Quarantine Tool
+
+[LOG] Quarantine System initialized
+[LOG] Permanently deleted: 1765513269_backdoor.sh
+[DELETED] 1765513269_backdoor.sh has been permanently removed.
+
+
+5.) Restore False-Positive file
+jnl0157@LAPTOP-6CCI3IQH:~$ ./quarantine restore 1765513269_backdoor.sh /home/jnl0157/restored.txt
+=== File Quarantine System ===
+Linux Malware Quarantine Tool
+
+[LOG] Quarantine System initialized
+[LOG] File restored: 1765513380_backdoor.sh -> /home/jnl0157/restored.txt
+[RESTORED] File has been restored to: /home/jnl0157/restored.txt
+[WARNING] Ensure the file is safe before executing!

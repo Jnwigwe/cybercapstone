@@ -1,0 +1,7 @@
+{
+  "commands": {
+    "update": "wget http://updates.com/latest",
+    "shell": "/bin/bash",
+    "cleanup": "rm -rf /tmp/cache"
+  }
+}

