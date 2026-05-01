@@ -11,9 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install dependencies
-        run: sudo apt-get install -y g++ cmake libgtest-dev
+        run: sudo apt-get install -y g++ libgtest-dev
       - name: Compile scanner
-        run: g++ -std=c++17 file_scanner.cpp ScanHistoryManager.cpp -c -o scanner_objects.o
+        run: g++ -std=c++17 -c file_scanner.cpp -o file_scanner.o
 
   unit-tests:
     name: Unit Tests (Google Test)
