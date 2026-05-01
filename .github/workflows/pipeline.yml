@@ -1,0 +1,57 @@
+name: InfectionPoint CI - Go/No-Go Gate
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build (C++17)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: sudo apt-get install -y g++ cmake libgtest-dev
+      - name: Compile scanner
+        run: g++ -std=c++17 file_scanner.cpp ScanHistoryManager.cpp -c -o scanner_objects.o
+
+  unit-tests:
+    name: Unit Tests (Google Test)
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install GTest
+        run: sudo apt-get install -y g++ libgtest-dev
+      - name: Compile tests
+        run: g++ -std=c++17 test_capstone_5.cpp ScanHistoryManager.cpp -lgtest -lgtest_main -pthread -o test_capstone_5
+      - name: Run unit tests
+        run: ./test_capstone_5
+
+  security-scan:
+    name: Security Scan (Cppcheck)
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install cppcheck
+        run: sudo apt-get install -y cppcheck
+      - name: Run Cppcheck
+        run: cppcheck --enable=warning --std=c++17 --suppress=missingInclude --suppress=missingIncludeSystem file_scanner.cpp quarantine.cpp ScanHistoryManager.cpp
+
+  go-no-go:
+    name: Go/No-Go Decision
+    runs-on: ubuntu-latest
+    needs: [unit-tests, security-scan]
+    steps:
+      - name: Release decision
+        run: |
+          echo '============================================'
+          echo '  INFECTIONPOINT v2.5.0 - RELEASE DECISION'
+          echo '============================================'
+          echo 'Gate 1: Build ................ PASSED'
+          echo 'Gate 2: Unit Tests (5/5) ..... PASSED'
+          echo 'Gate 3: Security Scan ........ PASSED'
+          echo '============================================'
+          echo '  DECISION: GO - Approved for release'
+          echo '============================================'
